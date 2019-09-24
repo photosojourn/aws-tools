@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"gitlab.com/russell.whelan/aws-tools/pkg/awstools"
+	"github.com/photosojourn/aws-tools/pkg/awstools"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"

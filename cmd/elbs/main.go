@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/elb"
 	"github.com/aws/aws-sdk-go/service/elbv2"
-	"gitlab.com/russell.whelan/aws-tools/pkg/awstools"
+	"github.com/photosojourn/aws-tools/pkg/awstools"
 )
 
 func main() {
