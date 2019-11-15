@@ -16,6 +16,26 @@ func GetName(inst ec2.Instance) string {
 	return ""
 }
 
+//GetVpcName pull the name tag from a VPC
+func GetVpcName(vpc ec2.Vpc) string {
+	for _, tag := range vpc.Tags {
+		if *tag.Key == "Name" {
+			return *tag.Value
+		}
+	}
+	return ""
+}
+
+//GetVpcName pull the name tag from a VPC
+func GetSubnetName(subnet ec2.Subnet) string {
+	for _, tag := range subnet.Tags {
+		if *tag.Key == "Name" {
+			return *tag.Value
+		}
+	}
+	return ""
+}
+
 //AzsToStringv1 creates a string on AZ's from the list for elb api
 func AzsToStringv1(azs elb.LoadBalancerDescription) []string {
 	var azsString []string
