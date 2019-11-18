@@ -26,9 +26,19 @@ func GetVpcName(vpc ec2.Vpc) string {
 	return ""
 }
 
-//GetVpcName pull the name tag from a VPC
+//GetSubnetName pull the name tag from a Subnet
 func GetSubnetName(subnet ec2.Subnet) string {
 	for _, tag := range subnet.Tags {
+		if *tag.Key == "Name" {
+			return *tag.Value
+		}
+	}
+	return ""
+}
+
+//GetVolumeName pull the name tag from a Volume
+func GetVolumeName(volume ec2.Volume) string {
+	for _, tag := range volume.Tags {
 		if *tag.Key == "Name" {
 			return *tag.Value
 		}
