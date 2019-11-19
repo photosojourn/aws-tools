@@ -4,6 +4,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/ec2"
 	"github.com/aws/aws-sdk-go/service/elb"
 	"github.com/aws/aws-sdk-go/service/elbv2"
+	"github.com/aws/aws-sdk-go/service/route53"
 )
 
 //GetName pulls the Name tag from the instance
@@ -64,4 +65,14 @@ func AzsToStringv2(azs elbv2.LoadBalancer) []string {
 	}
 
 	return azsString
+}
+
+//RecordSetValuestoString creates a string of Values for a given Resource Record Set
+func RecordSetValuestoString(record route53.ResourceRecordSet) []string {
+	var valuesString []string
+	for _, recordset := range record.ResourceRecords {
+		valuesString = append(valuesString, *recordset.Value)
+	}
+
+	return valuesString
 }
