@@ -63,6 +63,7 @@ func main() {
 		fmt.Println("")
 		for _, record := range recordSets.ResourceRecordSets {
 
+			fmt.Println(*record)
 			values := awstools.RecordSetValuestoString(*record)
 			fmt.Fprintf(w, "%v\t", *record.Name)
 			fmt.Fprintf(w, "%v\t", *record.Type)
