@@ -14,7 +14,8 @@ import (
 
 func main() {
 
-	ec2session := ec2.New(session.New(), aws.NewConfig())
+	sess := session.Must(session.NewSession())
+	ec2session := ec2.New(sess)
 
 	params := &ec2.DescribeInstancesInput{
 		Filters: []*ec2.Filter{
